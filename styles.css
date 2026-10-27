@@ -1,1 +1,115 @@
-body { background: white; }
+
+/* Style the entire webpage */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f6f9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+/* Main To-Do List container */
+.container {
+    background-color: white;
+    padding: 30px;
+    border-radius: 12px;
+    width: 400px;
+    max-width: 85%;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Main heading */
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+/* Description */
+p {
+    text-align: center;
+    color: #777;
+}
+
+/* Input and button layout */
+#task-form {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+/* Task input */
+#task-input {
+    flex: 1;
+    min-width: 0;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+}
+
+/* All buttons */
+button {
+    padding: 10px 15px;
+    background-color: #4f46e5;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+/* Button hover effect */
+button:hover {
+    background-color: #3730a3;
+}
+
+/* Task list */
+#task-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+}
+
+/* Individual task */
+.task-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #f3f4f6;
+    border-radius: 6px;
+}
+
+.task-text {
+    flex: 1;
+    overflow-wrap: anywhere;
+}
+
+/* Completed task */
+.completed .task-text {
+    text-decoration: line-through;
+    color: gray;
+}
+
+/* Delete button */
+.delete-btn {
+    background-color: #ef4444;
+}
+
+.delete-btn:hover {
+    background-color: #dc2626;
+}
+
+/* Mobile layout */
+@media (max-width: 480px) {
+    .container {
+        padding: 20px;
+    }
+
+    #task-form {
+        flex-direction: column;
+    }
+}
