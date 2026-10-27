@@ -1,5 +1,5 @@
 
-/* Style the entire webpage */
+/* Entire webpage */
 body {
     font-family: Arial, sans-serif;
     background-color: #f4f6f9;
@@ -10,7 +10,7 @@ body {
     margin: 0;
 }
 
-/* Main To-Do List container */
+/* Main container */
 .container {
     background-color: white;
     padding: 30px;
@@ -20,7 +20,7 @@ body {
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
-/* Main heading */
+/* Heading */
 h1 {
     text-align: center;
     color: #333;
@@ -32,7 +32,7 @@ p {
     color: #777;
 }
 
-/* Input and button layout */
+/* Input and Add Task button */
 #task-form {
     display: flex;
     gap: 10px;
@@ -59,9 +59,32 @@ button {
     cursor: pointer;
 }
 
-/* Button hover effect */
 button:hover {
     background-color: #3730a3;
+}
+
+/* Filter buttons container */
+.filters {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+    justify-content: center;
+}
+
+/* Filter buttons */
+.filters button {
+    background-color: #e5e7eb;
+    color: #333;
+}
+
+.filters button:hover {
+    background-color: #c7d2fe;
+}
+
+/* Selected filter */
+.filters button.selected {
+    background-color: #4f46e5;
+    color: white;
 }
 
 /* Task list */
@@ -83,6 +106,7 @@ button:hover {
     border-radius: 6px;
 }
 
+/* Task text */
 .task-text {
     flex: 1;
     overflow-wrap: anywhere;
@@ -103,7 +127,7 @@ button:hover {
     background-color: #dc2626;
 }
 
-/* Mobile layout */
+/* Mobile responsiveness */
 @media (max-width: 480px) {
     .container {
         padding: 20px;
@@ -111,5 +135,14 @@ button:hover {
 
     #task-form {
         flex-direction: column;
+    }
+
+    .filters {
+        gap: 5px;
+    }
+
+    .filters button {
+        padding: 8px 10px;
+        font-size: 12px;
     }
 }
