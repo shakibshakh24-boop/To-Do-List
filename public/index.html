@@ -9,41 +9,112 @@
 </head>
 <body>
 
-    <div class="container">
+    <main class="container">
         <h1>My To-Do List</h1>
         <p>Organize your tasks for the day!</p>
 
-        <!-- Add Task Form -->
-        <form id="task-form">
-            <input
-                type="text"
-                id="task-input"
-                placeholder="Enter a new task"
-                aria-label="New task"
-                required
-            >
-            <button type="submit">Add Task</button>
-        </form>
+        <p id="message" class="message" role="status"></p>
 
-        <!-- Filter Buttons -->
-        <div class="filters">
-            <button type="button" id="all-btn" class="selected">
-                All
-            </button>
+        <!-- Authentication Section -->
+        <section id="auth-section">
 
-            <button type="button" id="active-btn">
-                Active
-            </button>
+            <div class="auth-forms">
+                <!-- Login Form -->
+                <form id="login-form">
+                    <h2>Login</h2>
 
-            <button type="button" id="completed-btn">
-                Completed
-            </button>
-        </div>
+                    <label for="login-username">Username</label>
+                    <input
+                        type="text"
+                        id="login-username"
+                        required
+                        autocomplete="username"
+                    >
 
-        <!-- Task List -->
-        <ul id="task-list"></ul>
+                    <label for="login-password">Password</label>
+                    <input
+                        type="password"
+                        id="login-password"
+                        required
+                        autocomplete="current-password"
+                    >
 
-    </div>
+                    <button type="submit">Login</button>
+                </form>
+
+                <!-- Registration Form -->
+                <form id="register-form">
+                    <h2>Create Account</h2>
+
+                    <label for="register-username">Username</label>
+                    <input
+                        type="text"
+                        id="register-username"
+                        minlength="3"
+                        maxlength="30"
+                        required
+                        autocomplete="username"
+                    >
+
+                    <label for="register-password">Password</label>
+                    <input
+                        type="password"
+                        id="register-password"
+                        minlength="12"
+                        required
+                        autocomplete="new-password"
+                    >
+
+                    <button type="submit">Register</button>
+                </form>
+            </div>
+
+        </section>
+
+        <!-- To-Do List Section -->
+        <section id="app-section" hidden>
+
+            <div class="user-bar">
+                <span>Welcome, <strong id="username-display"></strong>!</span>
+                <button type="button" id="logout-btn" class="logout-btn">
+                    Logout
+                </button>
+            </div>
+
+            <!-- Add Task Form -->
+            <form id="task-form">
+                <input
+                    type="text"
+                    id="task-input"
+                    placeholder="Enter a new task"
+                    aria-label="New task"
+                    maxlength="200"
+                    required
+                >
+
+                <button type="submit">Add Task</button>
+            </form>
+
+            <!-- Filter Buttons -->
+            <div class="filters">
+                <button type="button" id="all-btn" class="selected">
+                    All
+                </button>
+
+                <button type="button" id="active-btn">
+                    Active
+                </button>
+
+                <button type="button" id="completed-btn">
+                    Completed
+                </button>
+            </div>
+
+            <!-- Task List -->
+            <ul id="task-list"></ul>
+
+        </section>
+    </main>
 
     <script src="script.js"></script>
 </body>
