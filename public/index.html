@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,18 +7,27 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-
     <main class="container">
-        <h1>My To-Do List</h1>
-        <p>Organize your tasks for the day!</p>
+        <header class="page-header">
+            <div>
+                <h1>My To-Do List</h1>
+                <p>Organize your tasks and stay on track.</p>
+            </div>
+
+            <button
+                type="button"
+                id="theme-toggle"
+                class="theme-toggle"
+                aria-label="Toggle dark mode"
+            >
+                🌙 Dark mode
+            </button>
+        </header>
 
         <p id="message" class="message" role="status"></p>
 
-        <!-- Authentication Section -->
         <section id="auth-section">
-
             <div class="auth-forms">
-                <!-- Login Form -->
                 <form id="login-form">
                     <h2>Login</h2>
 
@@ -42,7 +50,6 @@
                     <button type="submit">Login</button>
                 </form>
 
-                <!-- Registration Form -->
                 <form id="register-form">
                     <h2>Create Account</h2>
 
@@ -68,51 +75,189 @@
                     <button type="submit">Register</button>
                 </form>
             </div>
-
         </section>
 
-        <!-- To-Do List Section -->
         <section id="app-section" hidden>
-
             <div class="user-bar">
-                <span>Welcome, <strong id="username-display"></strong>!</span>
+                <span>
+                    Welcome, <strong id="username-display"></strong>!
+                </span>
+
                 <button type="button" id="logout-btn" class="logout-btn">
                     Logout
                 </button>
             </div>
 
-            <!-- Add Task Form -->
+            <section class="dashboard-section">
+                <h2>Productivity Dashboard</h2>
+
+                <div class="dashboard-grid">
+                    <article class="stat-card">
+                        <span>Total tasks</span>
+                        <strong id="total-count">0</strong>
+                    </article>
+
+                    <article class="stat-card">
+                        <span>Completed</span>
+                        <strong id="completed-count">0</strong>
+                    </article>
+
+                    <article class="stat-card">
+                        <span>Active</span>
+                        <strong id="active-count">0</strong>
+                    </article>
+
+                    <article class="stat-card">
+                        <span>Overdue</span>
+                        <strong id="overdue-count">0</strong>
+                    </article>
+                </div>
+
+                <div
+                    class="progress-track"
+                    aria-label="Task completion progress"
+                >
+                    <div id="progress-bar" class="progress-bar"></div>
+                </div>
+
+                <p id="progress-label" class="progress-label">
+                    0% completed
+                </p>
+            </section>
+
             <form id="task-form">
+                <h2>Add a Task</h2>
+
+                <label for="task-input">Task name</label>
                 <input
                     type="text"
                     id="task-input"
                     placeholder="Enter a new task"
-                    aria-label="New task"
                     maxlength="200"
                     required
                 >
 
+                <div class="form-grid">
+                    <div>
+                        <label for="due-date-input">Due date (optional)</label>
+                        <input type="date" id="due-date-input">
+                    </div>
+
+                    <div>
+                        <label for="due-time-input">Due time (optional)</label>
+                        <input type="time" id="due-time-input">
+                    </div>
+
+                    <div>
+                        <label for="priority-input">Priority</label>
+                        <select id="priority-input">
+                            <option value="High">High</option>
+                            <option value="Medium" selected>Medium</option>
+                            <option value="Low">Low</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label for="category-input">Category</label>
+                        <select id="category-input">
+                            <option value="School">School</option>
+                            <option value="Work">Work</option>
+                            <option value="Personal" selected>Personal</option>
+                            <option value="Shopping">Shopping</option>
+                            <option value="Health">Health</option>
+                            <option value="Finance">Finance</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label for="recurrence-input">Repeat</label>
+                        <select id="recurrence-input">
+                            <option value="None">Does not repeat</option>
+                            <option value="Daily">Daily</option>
+                            <option value="Weekly">Weekly</option>
+                            <option value="Monthly">Monthly</option>
+                        </select>
+                    </div>
+                </div>
+
                 <button type="submit">Add Task</button>
             </form>
 
-            <!-- Filter Buttons -->
-            <div class="filters">
-                <button type="button" id="all-btn" class="selected">
-                    All
-                </button>
+            <section class="calendar-section">
+                <div class="section-heading">
+                    <h2>Calendar</h2>
 
-                <button type="button" id="active-btn">
-                    Active
-                </button>
+                    <div class="calendar-controls">
+                        <button
+                            type="button"
+                            id="prev-month"
+                            class="secondary-btn"
+                            aria-label="Previous month"
+                        >
+                            ‹
+                        </button>
 
-                <button type="button" id="completed-btn">
-                    Completed
-                </button>
-            </div>
+                        <strong id="calendar-month"></strong>
 
-            <!-- Task List -->
-            <ul id="task-list"></ul>
+                        <button
+                            type="button"
+                            id="next-month"
+                            class="secondary-btn"
+                            aria-label="Next month"
+                        >
+                            ›
+                        </button>
+                    </div>
+                </div>
 
+                <div class="calendar-weekdays">
+                    <span>Sun</span>
+                    <span>Mon</span>
+                    <span>Tue</span>
+                    <span>Wed</span>
+                    <span>Thu</span>
+                    <span>Fri</span>
+                    <span>Sat</span>
+                </div>
+
+                <div id="calendar-grid" class="calendar-grid"></div>
+
+                <p id="calendar-selection" class="calendar-selection">
+                    Select a date to see its tasks.
+                </p>
+
+                <ul id="calendar-task-list" class="calendar-task-list"></ul>
+            </section>
+
+            <section class="tasks-section">
+                <h2>Your Tasks</h2>
+
+                <div class="search-container">
+                    <label for="search-input">Search tasks</label>
+                    <input
+                        type="search"
+                        id="search-input"
+                        placeholder="Search by task name..."
+                    >
+                </div>
+
+                <div class="filters">
+                    <button type="button" id="all-btn" class="selected">
+                        All
+                    </button>
+
+                    <button type="button" id="active-btn">
+                        Active
+                    </button>
+
+                    <button type="button" id="completed-btn">
+                        Completed
+                    </button>
+                </div>
+
+                <ul id="task-list"></ul>
+            </section>
         </section>
     </main>
 
