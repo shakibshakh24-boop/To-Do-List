@@ -28,18 +28,18 @@ script.js: Handles the functionality of the To-Do List.
 
 **You need Node.js installed before doing this.**
 
-1. Clone the repository
+1. Clone the repository:
 git clone https://github.com/shakibshakh24-boop/To-Do-List.git
-2. Open the project folder
+2. Open the project folder:
 cd To-Do-List
-3. Install Dependencies
+3. Install Dependencies:
 npm install
-4. Configure Environment Variables
+4. Configure Environment Variables:
 Create a .env file in the main project folder
 Add session secret: SESSION_SECRET=your_private_random_secret
-5. Start the Backend and Frontend
+6. Start the Backend and Frontend:
 npm run dev
-6. Open the Website
+7. Open the Website:
 http://localhost:8000
-7. Stop the application
+8. Stop the application:
 Ctrl + C
