@@ -35,8 +35,7 @@ cd To-Do-List
 3. Install Dependencies:
 npm install
 4. Configure Environment Variables:
-Create a .env file in the main project folder
-Add session secret: SESSION_SECRET=your_private_random_secret
+Create a .env file in the main project folder. After, add the session secret: SESSION_SECRET=your_private_random_secret
 6. Start the Backend and Frontend:
 npm run dev
 7. Open the Website:
